@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fishermen - Edit Profile</title>
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <link rel="stylesheet" th:href="@{/css/forms.css}">
+</head>
+<body>
+
+<main class="welcome-message">
+    <div class="form-container">
+
+        <!-- Back Button -->
+        <div class="back-btn-container">
+            <a href="/home" class="back-btn">
+                <span class="anchor-icon">⚓</span> Back to Home
+            </a>
+        </div>
+
+        <h2>Edit Profile</h2>
+        <!-- TODO: Add correct form action, method and binding object here-->
+        <form th:action="@{/edit-profile}" th:object="${editProfileRequest}"  th:method="POST">
+            <input type="hidden" name="_method" value="put"/>
+
+            <!-- Username -->
+            <label for="username">Username</label>
+            <!-- TODO: bind the bellow input element with the DTO field -->
+            <input type="text" th:field="*{username}"
+                   id="username"
+                   placeholder="Enter your username">
+            <!-- TODO: show the element "Username must be between 4 and 20 characters!" only if username field has errors -->
+            <p class="text-light" th:if="${#fields.hasErrors('username')}">Username must be between 4 and 20 characters!</p>
+
+            <!-- Nickname -->
+            <label for="nickname">Nickname</label>
+            <input type="text" th:field="*{nickname}"
+                   id="nickname"
+                   placeholder="Enter your nickname">
+            <!-- TODO: show the element "Nickname name must be between 4 and 20 characters!" only if nickname field has errors -->
+            <p class="text-light" th:if="${#fields.hasErrors('nickname')}">Nickname name must be between 4 and 20 characters!</p>
+
+            <!-- Password -->
+            <label for="password">Change Password</label>
+            <input type="password" th:field="*{password}"
+                   id="password"
+                   placeholder="Enter new password">
+            <!-- TODO: show the element "Password must be between 4 and 10 characters!" only if nickname field has errors -->
+            <p class="text-light" th:if="${#fields.hasErrors('password')}">Password must be between 4 and 10 characters!</p>
+
+            <!-- Profile Picture -->
+            <label for="profilePicture">Profile Picture URL</label>
+            <input type="text" th:field="*{imageUrl}"
+                   id="profilePicture"
+                   placeholder="Enter image URL">
+            <!-- TODO: show the element "Enter valid URL link" only if user url field has errors -->
+            <p class="text-light" th:if="${#fields.hasErrors('imageUrl')}">Enter valid URL link</p>
+
+            <!-- Buttons -->
+            <div class="submit-btn">
+                <button type="submit" class="form-submit-btn">Save</button>
+                <a href="/home" class="form-submit-btn cancel-btn">Cancel</a>
+            </div>
+
+        </form>
+    </div>
+</main>
+
+<footer class="footer">
+    <div>&copy; SoftUni Exam - Spring Fundamentals. All rights reserved.</div>
+</footer>
+
+</body>
+</html>

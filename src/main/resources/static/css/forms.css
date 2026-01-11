@@ -1,0 +1,182 @@
+.form-container {
+    background-position: 10% 10%;
+    background-color: rgba(138, 141, 143, 0.09);
+    background-size: cover;
+    backdrop-filter: blur(5px);
+    padding: 90px 60px;
+    border-radius: 10px;
+    width: 550px;
+    /*max-width: 550px;*/
+    margin: 0 auto;
+    height: auto;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* Form styling */
+.form-container {
+    background-color: rgba(138, 141, 143, 0.09);
+    padding: 2rem 2.5rem;
+    border-radius: 12px;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.form-container h2 {
+    margin-bottom: 5px;
+    font-size: 1.8em;
+    text-align: center;
+    color: #ffd633;
+    font-family: 'Fisherman', serif;
+}
+
+.form-container label {
+    display: inline-block;
+    margin-bottom: 8px;
+    margin-top: 15px;
+    color: #faf8d7;
+    font-size: 20px;
+    font-family: 'Fisherman', serif;
+}
+
+.form-container input, select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.form-container button,
+.form-container .cancel-btn {
+    flex: 1;
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    font-family: Ocean, serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #455eab;;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.form-container button:hover,
+.form-container .cancel-btn:hover {
+
+    background-color: #ffd633;
+    color: #455eab;
+
+}
+
+.validation-text {
+    color: #ffcc66;
+    background-color: #ffdf7012;
+}
+
+p {
+    color: #ff8f33;
+    text-align: center;
+}
+
+.submit-btn {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.cancel-btn {
+    text-align: center;
+    font-family: Ocean, serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #455eab;;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-decoration: none;
+}
+
+/* new CSS*******************************************/
+/* Back button */
+.back-btn-container {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.back-btn {
+    color: #ffcc00;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 6px 14px;
+    border: 1px solid #ffcc00;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #ffcc00;
+    color: #000;
+}
+
+.anchor-icon {
+    display: inline-block;
+    transform: rotate(-270deg);
+    margin-right: 6px;
+}
+
+
+
+.form-container h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #ffcc00;
+}
+
+.form-container label {
+    display: block;
+    text-align: left;
+    margin: 0.75rem 0 0.25rem;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 0.75rem;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+}
+
+.form-submit-btn {
+    margin-top: 1rem;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    background: none;
+    border: 2px solid #ffcc00;
+    color: #ffcc00;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-submit-btn:hover {
+    background: #ffcc00;
+    color: #000;
+}
+

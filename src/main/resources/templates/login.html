@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fishermen - Login</title>
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <link rel="stylesheet" th:href="@{/css/forms.css}">
+</head>
+<body>
+
+<main class="welcome-message">
+    <div class="form-container">
+
+        <!-- Back Button -->
+        <div class="back-btn-container">
+            <a href="/" class="back-btn">
+                <span class="anchor-icon">⚓</span> Back to Home
+            </a>
+        </div>
+
+        <h2>Login</h2>
+        <p class="alert-warning" th:if="${loginAttemptMessage}" th:text="${loginAttemptMessage}" style="color: #ff6b6b; text-align: center; margin-bottom: 1rem; padding: 0.5rem; background: rgba(255,107,107,0.1); border-radius: 4px;"></p>
+
+        <!-- TODO: Add correct form action, method and binding object here-->
+        <form action="" th:method="POST" th:object="${loginRequest}">
+
+            <label for="username">Username</label>
+            <!-- TODO: bind the bellow input element with the DTO field -->
+            <input type="text" th:field="*{username}"  id="username" name="username"/>
+
+            <label for="password">Password</label>
+            <!-- TODO: bind the bellow input element with the DTO field -->
+            <input type="password" th:field="*{password}" id="password" name="password"/>
+
+            <button type="submit" class="form-submit-btn">Login</button>
+        </form>
+    </div>
+</main>
+
+<footer class="footer">
+    <div>&copy; SoftUni Exam - Spring Fundamentals. All rights reserved.</div>
+</footer>
+</body>
+</html>

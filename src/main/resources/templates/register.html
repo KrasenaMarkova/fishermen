@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fishermen - Register</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <link rel="stylesheet" th:href="@{/css/forms.css}">
+</head>
+<body>
+
+<main class="welcome-message">
+    <div class="form-container">
+
+        <!-- Back Button -->
+        <div class="back-btn-container">
+            <a href="/" class="back-btn">
+                <span class="anchor-icon">⚓</span> Back to Home
+            </a>
+        </div>
+
+        <h2>Register</h2>
+        <!-- TODO: Add correct form action, method and binding object here-->
+        <form th:action="@{/register}" th:method="post" th:object="${registerRequest}">
+            <label for="username">Username</label>
+            <!-- TODO: bind the bellow input element with the DTO field -->
+            <input type="text" th:field="*{username}" id="username" name="username">
+            <!-- TODO: show the element "Username must be at least 4 characters" only if username field has errors -->
+            <p class="text-light" th:if="${#fields.hasErrors('username')}">Username must be at least 4 characters</p>
+
+            <label for="password">Password</label>
+            <!-- TODO: bind the bellow input element with the DTO field -->
+            <input type="password" th:field="*{password}" id="password" name="password"/>
+            <!-- TODO: show the element "Password must be at least 4 characters" only if username field has errors -->
+            <p class="text-center" th:if="${#fields.hasErrors('password')}">Password must be at least 4 characters</p>
+
+            <label for="nickname">Nickname</label>
+            <!-- TODO: bind the bellow input element with the DTO field -->
+            <input type="text" th:field="*{nickname}" id="nickname" name="nickname"/>
+            <!-- TODO: show the element "Nickname must be at least 4 characters" only if username field has errors -->
+            <p class="text-info" th:if="${#fields.hasErrors('nickname')}">Nickname must be at least 4 characters</p>
+
+            <label for="experience" class="h3 mb-2">Experience</label>
+            <select id="experience" name="experience" th:field="*{experience}">
+                <!-- TODO: loop through Experience Enum value -->
+                <option value="">Select experience</option>
+                <option th:each="e : ${experience}"
+                        th:value="${e}"
+                        th:text="${e.name()}">
+                </option>
+            </select>
+            <!-- TODO: show the element "You must select experience option" only if username field has errors -->
+            <p class="text-light" th:if="${#fields.hasErrors('experience')}">You must select experience option</p>
+
+            <button type="submit" class="form-submit-btn">Register</button>
+        </form>
+    </div>
+</main>
+
+<footer class="footer">
+    <div>&copy; SoftUni Exam - Spring Fundamentals. All rights reserved.</div>
+</footer>
+</body>
+</html>

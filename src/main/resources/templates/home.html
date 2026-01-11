@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fishermen</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/slide-menu.css}">
+</head>
+<body>
+
+<main class="main-content-index">
+    <div class="profile-section">
+        <div class="profile-section-card">
+            <div class="single-section-box">
+                <div class="profile-header">
+                    <img src="/images/fisherman.png" alt="Profile Picture" class="profile-img"  th:src="${fisherman.imageUrl}">
+                    <!-- TODO: use user.profilePicture -->
+                    <h2 class="profile-name" th:text="${fisherman.nickname}">Fisherman 1</h2><!-- TODO: use user.nickname -->
+                </div>
+                <div class="profile-info">
+                    <div class="details-section-container">
+                        <strong>Username: </strong>
+                        <section th:text="${fisherman.username}">Kormoran</section><!-- TODO: use user.username -->
+                    </div>
+                    <div class="details-section-container">
+                        <strong>Experience: </strong>
+                        <section th:text="${fisherman.experience}">INTERMEDIATE</section><!-- TODO: use user.experience -->
+                    </div>
+                    <div class="details-section-container">
+                        <strong>Cash: </strong>
+                        <section th:text="${fisherman.cash}">200 $</section><!-- TODO: use user.cash -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <div class="profile-section-card">
+                <div class="details-section-container">
+                    <strong>Id: </strong>
+                    <section th:text="${fisherman.id}">2f36f38d-e2bc-4e90-be90-25fdc8016c9d</section><!-- TODO: use user.id -->
+                </div>
+            </div>
+            <div class="profile-section-card">
+                <div class="buttons">
+                    <a href="/edit-profile" class="edit-btn" style="padding: 0.7em">Edit Profile</a>
+                    <a href="/logout"  class="edit-btn">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="items-section-card">
+        <div class="fish-section-card">
+            <a href="/fishing-spot" class="hero-btn">🚢 Pick a random fish!</a>
+        </div>
+        <div class="sale-section-card">
+            <div>
+                <section><h2>Fishes for sale</h2></section>
+            </div>
+            <div class="slider-container vertical">
+                <div class="fade fade-bottom"></div>
+                <section class="fish-slider vertical">
+                    <!-- TODO: loop through every fish announced for sale -->
+                    <!--Fish for sale  1-->
+                    <div class="slide" th:each="fish : ${fishesForSale}">
+                        <!-- TODO: type of the fish (if) -->
+                        <span class="badge eatable eatable-for-sale" th:classappend="${fish.type.toLowerCase()}" th:text="${fish.type}">>Eatable</span>
+                        <!--<span class="badge ornamental">Ornamental</span>-->
+                        <!-- TODO: price of the fish -->
+                        <span class="price-badge" th:text="'Price: ' + ${fish.price} + ' $'">Price: 30</span>
+                        <!-- TODO: image of the fish -->
+                        <img th:src="${fish.imageURL}" th:alt="${fish.species}"/>
+                        <!-- TODO: species of the fish -->
+                        <h4 th:text="${fish.species}">Salmon</h4>
+                        <!-- TODO: show the form bellow ONLY IF user is not an owner of the fish (if)! -->
+                        <form th:action="@{/fish/buy}" method="post" th:if="${fish.owner.id != fisherman.id}">
+                            <input type="hidden" name="fishId" th:value="${fish.id}"/>
+                            <button type="submit" class="for-sale-btn buy-btn" style="background: transparent; cursor: pointer">Buy</button>
+                        </form>
+                    </div>
+                </section>
+                <div class="fade fade-top"></div>
+            </div>
+        </div>
+    </div>
+    <div class="items-section-card">
+        <div class="catch-section">
+            <div class="fish-section-card">
+                <div>
+                    <section><h2>Fishes</h2></section>
+                </div>
+                <div class="slider-container">
+                    <div class="fade fade-left"></div>
+                    <section class="fish-slider" id="slider">
+                        <!-- TODO: loop through every caught/bought fish by current fisherman -->
+                        <!--Caught/Bought fish 1-->
+                        <div class="slide" th:each="fish : ${fisherman.fishes}">
+                            <!-- TODO: type of the fish (if) -->
+                            <span class="badge eatable" th:classappend="${fish.type.toLowerCase()}"
+                                  th:text="${fish.type}">Eatable</span>
+                            <!--<span class="badge ornamental">Ornamental</span>-->
+                            <!-- TODO: image of the fish -->
+                            <img th:src="${fish.imageURL}" th:alt="${fish.species}"/>
+                            <!-- TODO: species of the fish -->
+                            <h4 th:text="${fish.species}">Snapper</h4>
+                            <!-- TODO: weight of the fish -->
+                            <h4 class="weight" th:text="${fish.weight} + ' grams'">1000 grams</h4>
+                            <!-- TODO: Any fish can be sold. Think about how to associate each fish with 'For sale' button' (if)-->
+                            <form th:action="@{/fish/for-sale}" method="post" th:if="${!fish.forSale}">
+                                <input type="hidden" name="fishId" th:value="${fish.id}"/>
+                                <button type="submit" class="for-sale-btn" style="background: transparent; cursor: pointer">For sale</button>
+                            </form>
+                            <!-- TODO: If the fish is announced for sale 'For sale' text must be replaced by 'Offered'. Think about how to do it (if) -->
+                            <p class="for-sale-btn offered" th:if="${fish.forSale}">Offered</p>
+                        </div>
+                    </section>
+                    <div class="fade fade-right"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div>&copy; SoftUni Exam - Spring Fundamentals. All rights reserved.</div>
+</footer>
+
+</body>
+</html>

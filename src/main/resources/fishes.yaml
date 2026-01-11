@@ -1,0 +1,54 @@
+fishes:
+  - species: "Salmon"
+    weight: 2000
+    type: "eatable"
+    imageUrl: "/images/salmon.png"
+    price: 30
+
+  - species: "Tilapia"
+    weight: 3000
+    type: "eatable"
+    imageUrl: "/images/tilapia.png"
+    price: 45
+
+  - species: "Clown fish"
+    weight: 1550
+    type: "ornamental"
+    imageUrl: "/images/clown-fish.png"
+    price: 100
+
+  - species: "Blue-striped grunt"
+    weight: 250
+    type: "ornamental"
+    imageUrl: "/images/bluestriped_grunt.png"
+    price: 150
+
+  - species: "Snapper"
+    weight: 1000
+    type: "eatable"
+    imageUrl: "/images/snapper.png"
+    price: 100
+
+  - species: "Goldfish"
+    weight: 50
+    type: "ornamental"
+    imageUrl: "/images/goldfish.png"
+    price: 120
+
+  - species: "Tuna fish"
+    weight: 4250
+    type: "eatable"
+    imageUrl: "/images/tuna.png"
+    price: 80
+
+  - species: "Puffer-fish"
+    weight: 550
+    type: "ornamental"
+    imageUrl: "/images/puffer-fish.png"
+    price: 200
+
+  - species: "Yellow tang"
+    weight: 150
+    type: "ornamental"
+    imageUrl: "/images/yellow-tang.png"
+    price: 90
