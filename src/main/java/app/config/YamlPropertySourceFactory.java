@@ -9,7 +9,6 @@ import org.springframework.core.io.support.PropertySourceFactory;
 import java.io.IOException;
 import java.util.Properties;
 
-// DO NOT CHANGE THIS CLASS, OTHERWISE YOUR APPLICATION MAY NOT WORK CORRECTLY!!!
 public class YamlPropertySourceFactory implements PropertySourceFactory {
 
     @Override

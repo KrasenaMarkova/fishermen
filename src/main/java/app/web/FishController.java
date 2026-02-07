@@ -22,7 +22,6 @@ public class FishController {
   @GetMapping("/fishing-spot")
   public ModelAndView fishingSpot(HttpSession session) {
 
-//    UUID fishermanId = (UUID) session.getAttribute("user_id");
     FishProperties.FishesData randomFish = fishService.pickRandomFish();
 
     if (randomFish == null) {
